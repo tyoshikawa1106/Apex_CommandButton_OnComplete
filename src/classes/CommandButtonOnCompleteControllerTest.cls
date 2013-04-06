@@ -1,5 +1,5 @@
 /*
- * onComplete処理・テストクラス
+ * commandButton onComplete処理サンプル
  * © 2013 Force.com Developer
  * ----------------------------------------
  * @createdDate      : 2013/01/01
@@ -19,10 +19,10 @@ private class CommandButtonOnCompleteControllerTest {
         System.debug('◆◆◆◆CommandButtonOnCompleteControllerTest:START');
         
         // ユーザ
-        User objUser = getUser();
+        User user = getUser();
         
         // テスト実施
-        System.RunAs(objUser) {
+        System.RunAs(user) {
             
             // カレントページにパラメータを設定
 	        PageReference pageRef = getPageReference();
@@ -49,10 +49,10 @@ private class CommandButtonOnCompleteControllerTest {
         System.debug('◆◆◆◆doButtonClickTest:START');
         
         // ユーザ
-        User objUser = getUser();
+        User user = getUser();
         
         // テスト実施
-        System.RunAs(objUser) {
+        System.RunAs(user) {
             
             // カレントページにパラメータを設定
 	        PageReference pageRef = getPageReference();

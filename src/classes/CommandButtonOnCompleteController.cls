@@ -1,5 +1,5 @@
 /*
- * onComplete処理・コントローラークラス
+ * commandButton onComplete処理サンプル
  * © 2013 Force.com Developer
  * ----------------------------------------
  * @createdDate      : 2013/01/01
