@@ -1,91 +1,41 @@
-/*
+/**
  * commandButton onComplete処理サンプル
  * © 2013 Force.com Developer
  * ----------------------------------------
- * @createdDate      : 2013/01/01
- * @createdName      : TAIKI,YOSHIKAWA
- * ----------------------------------------
- * @lastModifiedDate : 2013/01/01
- * @lastModifiedName : TAIKI,YOSHIKAWA
+ * @createdName      : Taiki,Yoshikawa
+ * @lastModifiedName : Taiki,Yoshikawa
  * ----------------------------------------
  */
 @isTest
 private class CommandButtonOnCompleteControllerTest {
-	
-	/*
-	 * コンストラクタ・テスト
-	 */
+    
+    /**
+     * コンストラクタ
+     */
     static testMethod void CommandButtonOnCompleteControllerTest() {
-        System.debug('◆◆◆◆CommandButtonOnCompleteControllerTest:START');
+            
+        Test.startTest();
         
-        // ユーザ
-        User user = getUser();
+        CommandButtonOnCompleteController cls = new CommandButtonOnCompleteController();
+        System.assertEquals(cls.message, '');
         
-        // テスト実施
-        System.RunAs(user) {
-            
-            // カレントページにパラメータを設定
-	        PageReference pageRef = getPageReference();
-	        Test.setCurrentPage(pageRef);
-            
-            // テスト開始
-            Test.startTest();
-            
-            // コンストラクタ
-            CommandButtonOnCompleteController cls = new CommandButtonOnCompleteController();
-            System.assertEquals(cls.message, '');
-            
-            // テスト終了
-            Test.stopTest();
-        }
-        
-        System.debug('◆◆◆◆CommandButtonOnCompleteControllerTest:END');
+        Test.stopTest();
     }
     
-    /*
-	 * ボタン押下処理・テスト
-	 */
+    /**
+     * ボタン押下処理
+     */
     static testMethod void doButtonClickTest() {
-        System.debug('◆◆◆◆doButtonClickTest:START');
         
-        // ユーザ
-        User user = getUser();
+        Test.startTest();
         
-        // テスト実施
-        System.RunAs(user) {
-            
-            // カレントページにパラメータを設定
-	        PageReference pageRef = getPageReference();
-	        Test.setCurrentPage(pageRef);
-            
-            // テスト開始
-            Test.startTest();
-            
-            // コンストラクタ
-            CommandButtonOnCompleteController cls = new CommandButtonOnCompleteController();
-            System.assertEquals(cls.message, '');
-            // ボタン処理
-            cls.doButtonClick();
-            System.assertEquals(cls.message, 'OK');
-            
-            // テスト終了
-            Test.stopTest();
-        }
+        // コンストラクタ
+        CommandButtonOnCompleteController cls = new CommandButtonOnCompleteController();
+        System.assertEquals(cls.message, '');
+        // ボタン処理
+        cls.doButtonClick();
+        System.assertEquals(cls.message, 'OK');
         
-        System.debug('◆◆◆◆doButtonClickTest:END');
-    }
-    
-    /*
-     * ユーザ取得
-     */
-    private static User getUser() {
-    	return [select Id from User where Id =: UserInfo.getUserId() limit 1];
-    }
-    
-    /*
-     * テストページ取得
-     */
-    private static PageReference getPageReference() {
-    	return new PageReference('TestPage');
+        Test.stopTest();
     }
 }

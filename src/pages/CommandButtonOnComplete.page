@@ -1,0 +1,11 @@
+<apex:page Controller="CommandButtonOnCompleteController" title="Force.com Sample" showHeader="true" sidebar="false" id="page">
+    <apex:form id="form">
+        <apex:commandButton value="Button" action="{!doButtonClick}" onComplete="return btnClick('{!JSENCODE(message)}');" rerender="form" />
+        <script>
+            function btnClick(prmMessage) {
+                alert(prmMessage);
+                return false;
+            }
+        </script>
+    </apex:form>
+</apex:page>
